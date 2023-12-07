@@ -21,13 +21,19 @@
         <th>EMPLOYEE NAME</th>
         <th>EMPLOYEE ID</th>
         <th>SALARY</th>
-        <th>DELETE</th>
+        <th colspan="2">MANAGE</th>
     </tr>
     {% for x in data %}
     <tr>
         <td>{{ x.name }}</td>
         <td>{{ x.employee_id }}</td>
         <td>{{x.salary}}</td>
+        <td> <form method="POST" action="{% url 'updt' x.id %}">
+                {% csrf_token %}
+                {{ form }}
+
+                <input type="submit" class="btn btn-outline-primary" value="Update"/>
+            </form></td>
         <td><form action="{% url 'delt' x.id %}" method="POST" class="d-inline-block">
             {% csrf_token %}
             <input type="submit" class="btn btn-outline-danger" value="Delete"/>
@@ -36,5 +42,8 @@
     {% endfor %}
 
 </table>
+ <div style="padding-top:10px">
+                   <a href="{% url 'create' %}"> <button id="aa" type="submit" >Add Employee</button></a>
+                         </div>
 </body>
 </html>

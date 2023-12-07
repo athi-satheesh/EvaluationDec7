@@ -1,0 +1,18 @@
+
+{% load crispy_forms_filters %}
+<center>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h4 class="text-center display-4">Update Employee Details</h4>
+        </div>
+        <div class="col-md-8">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+       </form>  <button type="submit">Update Employee</button>
+    </div>
+
+
+        </div>
+</div></center>
